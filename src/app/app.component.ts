@@ -6,5 +6,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'test';
+
+  tasksNotDone: Array<string> = [];
+  tasksDone: Array<string> = [];
+
+
+  addNew(newTaskReceived) {
+    this.tasksNotDone.push(newTaskReceived);
+    console.log(this.tasksNotDone);
+  }
+
+  updateListToDo(element: string) {
+    this.tasksNotDone = this.tasksNotDone.filter(e => e !== element);
+  }
+  updateListDone(element: string) {
+    this.tasksDone.push(element);
+  }
 }

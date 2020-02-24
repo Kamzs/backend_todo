@@ -1,0 +1,13 @@
+.container{
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+.innercontainer{
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+h2{
+  text-align: center;
+}

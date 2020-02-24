@@ -1,0 +1,12 @@
+<h2>ToDos</h2>
+<ng-container *ngIf="listOfTasks.length===0; then noElems; else show">
+
+</ng-container>
+<ng-template #noElems >nothing to show</ng-template>
+<ng-template #show >
+  <ul *ngFor="let element of listOfTasks">
+    <li>{{element}}</li>
+    <button (click)="markDone(element)" > markDone</button>
+    <button (click)="remove(element)" > delete</button>
+  </ul>
+</ng-template>

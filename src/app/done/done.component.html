@@ -1,0 +1,11 @@
+<h2>Done!</h2>
+
+<ng-container *ngIf="tasksDoneInputField.length===0; then noElems; else show">
+
+</ng-container>
+<ng-template #noElems >nothing to show</ng-template>
+<ng-template #show >
+  <ul *ngFor="let element of tasksDoneInputField">
+    <li>{{element}}</li>
+  </ul>
+</ng-template>
