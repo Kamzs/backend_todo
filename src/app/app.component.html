@@ -1,21 +1,12 @@
 <div class="container">
-  <app-input
-  (emiter)="addNew($event)">
-  </app-input>
+  <app-input></app-input>
 </div>
 <div class="container">
   <div class="innercontainer">
-    <app-todo
-    [listOfTasks]="tasksNotDone"
-    (emiterToDoDelete)="updateListToDo($event)"
-    (emiterDone)="updateListDone($event)"
-    >
-  </app-todo>
+    <app-todo></app-todo>
   </div>
   <div class="innercontainer">
-    <app-done
-      [tasksDoneInputField]="tasksDone"
-    ></app-done>
+    <app-done></app-done>
   </div>
 
 </div>

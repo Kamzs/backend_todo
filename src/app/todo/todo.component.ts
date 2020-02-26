@@ -1,4 +1,5 @@
 import {Component, OnInit, Input, EventEmitter, Output} from '@angular/core';
+import {LogicService} from '../logic.service';
 
 @Component({
   selector: 'app-todo',
@@ -7,30 +8,17 @@ import {Component, OnInit, Input, EventEmitter, Output} from '@angular/core';
 })
 export class TodoComponent {
 
-  @Input()
-  listOfTasks: Array<string> = [];
+  toShow: Array<string>;
 
-  @Output()
-  emiterToDoDelete = new EventEmitter<string>();
-
-  @Output()
-  emiterDone = new EventEmitter<string>();
-
-  markDone(element: string) {
-    this.listOfTasks = this.listOfTasks.filter(e => {
-      // tslint:disable-next-line: no-unused-expression
-      e !== element;
-    });
-    this.emiterToDoDelete.emit(element);
-    this.emiterDone.emit(element);
-
+  constructor(private service: LogicService) {
+    this.service.getObservableTasksToDo().subscribe(received => this.toShow = received );
   }
-  remove(element) {
-    this.listOfTasks = this.listOfTasks.filter(e => {
-      // tslint:disable-next-line: no-unused-expression
-      e !== element;
-    });
-    this.emiterToDoDelete.emit(element);
+
+  markDone(task: string) {
+    this.service.addDone(task);
+  }
+  remove(task: string) {
+    this.service.removeToDo(task);
   }
 
 }

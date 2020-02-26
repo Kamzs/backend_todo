@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import {LogicService} from '../logic.service';
 
 @Component({
   selector: 'app-input',
@@ -7,23 +8,21 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class InputComponent implements OnInit {
 
-  inputField: string = 'enterText';
+  inputField: string = 'enter text here';
 
-  @Output()
-  emiter = new EventEmitter<string>();
-
-  constructor() { }
+  constructor(private service: LogicService) {
+  }
 
   ngOnInit(): void {
   }
 
   clear() {
     this.inputField = '';
-    console.log('aaa');
   }
 
-  send() {
-    this.emiter.emit(this.inputField);
-  }
+  add() {
+    this.service.addToDo(this.inputField);
+    this.inputField = 'enter text here';
+  };
 
 }
