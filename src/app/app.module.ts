@@ -9,7 +9,9 @@ import { OwnDirectiveDirective } from './shared/own-directive.directive';
 import { DateDirective } from './shared/date.directive';
 import { ModyfyPipe } from './shared/modyfy.pipe';
 import { SortPipe } from './shared/sort.pipe';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {SpyInterceptor} from './shared/spy.interceptor';
+import {AuthInterceptor} from './shared/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,18 @@ import {HttpClientModule} from '@angular/common/http';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: SpyInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
