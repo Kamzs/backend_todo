@@ -1,5 +1,8 @@
 import {Component, OnInit, Input, EventEmitter, Output} from '@angular/core';
 import {LogicService} from '../logic.service';
+import {Task} from '../task';
+import {HttpService} from '../http.service';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-todo',
@@ -8,17 +11,18 @@ import {LogicService} from '../logic.service';
 })
 export class TodoComponent {
 
-  toShow: Array<string>;
+  toShow: Observable<Array<Task>>;
 
-  constructor(private service: LogicService) {
-    this.service.getObservableTasksToDo().subscribe(received => this.toShow = received );
+  constructor(private logicService: LogicService, private httpService: HttpService) {
+    this.toShow = this.logicService.getObservableTasksToDo();
   }
 
-  markDone(task: string) {
-    this.service.addDone(task);
+  markDone(task: Task) {
+    task.done = new Date();
+    this.httpService.updateOne(task);
   }
-  remove(task: string) {
-    this.service.removeToDo(task);
+  remove(task: Task) {
+    this.httpService.removeToDo(task);
   }
 
 }

@@ -5,17 +5,27 @@ import { AppComponent } from './app.component';
 import { TodoComponent } from './todo/todo.component';
 import { DoneComponent } from './done/done.component';
 import { InputComponent } from './input/input.component';
+import { OwnDirectiveDirective } from './shared/own-directive.directive';
+import { DateDirective } from './shared/date.directive';
+import { ModyfyPipe } from './shared/modyfy.pipe';
+import { SortPipe } from './shared/sort.pipe';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     TodoComponent,
     DoneComponent,
-    InputComponent
+    InputComponent,
+    OwnDirectiveDirective,
+    DateDirective,
+    ModyfyPipe,
+    SortPipe
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

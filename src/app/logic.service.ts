@@ -1,43 +1,26 @@
 import { Injectable } from '@angular/core';
 import {BehaviorSubject, Observable} from 'rxjs';
+import {Task} from './task';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LogicService {
 
-  tasksToDO: Array<string> = ['task1', 'task2', 'task3'];
-  tasksDone: Array<string> = [];
+  tasksToDO: Array<Task> = [];
+  tasksDone: Array<Task> = [];
 
-  subjectTasksToDo: BehaviorSubject<Array<string>> = new BehaviorSubject<Array<string>>(this.tasksToDO);
-  subjectTasksDone: BehaviorSubject<Array<string>> = new BehaviorSubject<Array<string>>(this.tasksDone);
+  subjectTasksToDo: BehaviorSubject<Array<Task>> = new BehaviorSubject<Array<Task>>(this.tasksToDO);
+  subjectTasksDone: BehaviorSubject<Array<Task>> = new BehaviorSubject<Array<Task>>(this.tasksDone);
 
-  constructor() { }
+  constructor() {
+  }
 
-  getObservableTasksToDo() : Observable<Array<string>> {
+  getObservableTasksToDo() : Observable<Array<Task>> {
     return this.subjectTasksToDo.asObservable();
   }
-  getObservableTasksDone() : Observable<Array<string>> {
+  getObservableTasksDone() : Observable<Array<Task>> {
     return this.subjectTasksDone.asObservable();
-  }
-
-  addToDo(task: string) {
-    this.tasksToDO.push(task);
-    this.subjectTasksToDo.next(this.tasksToDO);
-  };
-
-  removeToDo(task: string){
-    this.tasksToDO = this.tasksToDO.filter( x => x !== task);
-    this.subjectTasksToDo.next(this.tasksToDO);
-
-  }
-
-  addDone(task: string){
-    this.tasksToDO = this.tasksToDO.filter( x => x !== task);
-    this.subjectTasksToDo.next(this.tasksToDO);
-    this.tasksDone.push(task);
-    this.subjectTasksDone.next(this.tasksDone);
-
   }
 
 }

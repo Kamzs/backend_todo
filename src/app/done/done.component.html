@@ -5,7 +5,9 @@
 </ng-container>
 <ng-template #noElems >nothing to show</ng-template>
 <ng-template #show >
-  <ul *ngFor="let element of toShow">
-    <li>{{element}}</li>
+  <ul appOwnDirective>
+    <li appDate [date]="task.done" *ngFor="let task of toShow">
+      {{task.name | modyfy }}
+    </li>
   </ul>
 </ng-template>

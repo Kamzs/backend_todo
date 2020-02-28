@@ -1,5 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {LogicService} from '../logic.service';
+import {Task} from '../task';
 
 @Component({
   selector: 'app-done',
@@ -8,10 +9,9 @@ import {LogicService} from '../logic.service';
 })
 export class DoneComponent {
 
-  toShow: Array<string>;
-
+  toShow: Array<Task>;
 
   constructor(private service: LogicService) {
-    this.service.getObservableTasksDone().subscribe(received => this.toShow = received );
+    this.service.getObservableTasksDone().subscribe((received: Array<Task>) => this.toShow = received );
   }
 }

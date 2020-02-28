@@ -1,15 +1,13 @@
 body{
-  background-color: darkgray;
+  background-color: grey;
+  padding: 20px;
 }
 
 h2{
-text-align: center;
+  text-align: center;
+  padding: 10px;
 }
 
 li{
-  margin: auto;
-}
-
-button{
-  margin: 3px;
+  margin: 15px;
 }

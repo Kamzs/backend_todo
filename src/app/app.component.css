@@ -1,11 +1,12 @@
 .container{
   display: flex;
   justify-content: center;
-  margin: auto;
+
 }
 .innercontainer{
   display: flex;
   justify-content: center;
-  margin: auto;
+  margin: 30px;
+
 }
 

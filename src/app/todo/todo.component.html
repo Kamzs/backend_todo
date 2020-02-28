@@ -1,12 +1,12 @@
 <h2>ToDos</h2>
-<ng-container *ngIf="toShow.length===0; then noElems; else show">
+<ng-container>
 
-</ng-container>
-<ng-template #noElems >nothing to show</ng-template>
-<ng-template #show >
-  <ul *ngFor="let element of toShow">
-    <li>{{element}}</li>
-    <button (click)="markDone(element)" > markDone</button>
-    <button (click)="remove(element)" > delete</button>
+  <ul appOwnDirective >
+    <li appDate [date]="task.created" *ngFor="let task of toShow | async | sort">
+      {{task.name | modyfy }}<br>
+      <button type="button" class="btn btn-primary" (click)="markDone(task)" > markDone</button>
+      <button type="button" class="btn btn-info" (click)="remove(task)" > delete</button>
+    </li>
+
   </ul>
-</ng-template>
+</ng-container>
