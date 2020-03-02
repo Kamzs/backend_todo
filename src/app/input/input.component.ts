@@ -1,7 +1,7 @@
 import { Component} from '@angular/core';
-import {LogicService} from '../logic.service';
-import {HttpService} from '../http.service';
-import {Task} from '../task';
+import {LogicService} from '../services/logic.service';
+import {HttpService} from '../services/http.service';
+import {Task} from '../jso/task';
 import {TaskLogger} from 'protractor/built/taskLogger';
 
 @Component({

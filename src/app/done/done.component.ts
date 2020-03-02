@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
-import {LogicService} from '../logic.service';
-import {Task} from '../task';
+import {LogicService} from '../services/logic.service';
+import {Task} from '../jso/task';
+import {HttpService} from '../services/http.service';
 
 @Component({
   selector: 'app-done',
@@ -11,7 +12,11 @@ export class DoneComponent {
 
   toShow: Array<Task>;
 
-  constructor(private service: LogicService) {
-    this.service.getObservableTasksDone().subscribe((received: Array<Task>) => this.toShow = received );
+  constructor(private logicService: LogicService, private httpService: HttpService) {
+    this.logicService.getObservableTasksDone().subscribe((received: Array<Task>) => this.toShow = received );
+  }
+
+  remove(task: Task) {
+    this.httpService.removeToDo(task);
   }
 }

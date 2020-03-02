@@ -1,13 +1,17 @@
-body{
-  background-color: grey;
+.container{
+  background-color: gainsboro;
   padding: 20px;
 }
 
 h2{
   text-align: center;
-  padding: 10px;
+  padding-top: 20px;
 }
 
 li{
   margin: 15px;
+  text-align: center;
+}
+ul{
+  list-style: none;
 }

@@ -5,13 +5,15 @@ import { AppComponent } from './app.component';
 import { TodoComponent } from './todo/todo.component';
 import { DoneComponent } from './done/done.component';
 import { InputComponent } from './input/input.component';
-import { OwnDirectiveDirective } from './shared/own-directive.directive';
-import { DateDirective } from './shared/date.directive';
-import { ModyfyPipe } from './shared/modyfy.pipe';
-import { SortPipe } from './shared/sort.pipe';
+import { OwnDirectiveDirective } from './directives/own-directive.directive';
+import { DateDirective } from './directives/date.directive';
+import { ModyfyPipe } from './pipes/modyfy.pipe';
+import { SortPipe } from './pipes/sort.pipe';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
-import {SpyInterceptor} from './shared/spy.interceptor';
-import {AuthInterceptor} from './shared/auth.interceptor';
+import {SpyInterceptor} from './interceptors/spy.interceptor';
+import {AuthInterceptor} from './interceptors/auth.interceptor';
+import {AppRoutingModule} from './app-routing.module';
+import { DetailsComponent } from './details/details.component';
 
 @NgModule({
   declarations: [
@@ -22,12 +24,14 @@ import {AuthInterceptor} from './shared/auth.interceptor';
     OwnDirectiveDirective,
     DateDirective,
     ModyfyPipe,
-    SortPipe
+    SortPipe,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [
     {

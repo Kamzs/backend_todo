@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {BehaviorSubject, Observable} from 'rxjs';
-import {Task} from './task';
+import {Task} from '../jso/task';
 
 @Injectable({
   providedIn: 'root'

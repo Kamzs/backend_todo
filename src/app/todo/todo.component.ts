@@ -1,7 +1,7 @@
 import {Component, OnInit, Input, EventEmitter, Output} from '@angular/core';
-import {LogicService} from '../logic.service';
-import {Task} from '../task';
-import {HttpService} from '../http.service';
+import {LogicService} from '../services/logic.service';
+import {Task} from '../jso/task';
+import {HttpService} from '../services/http.service';
 import {Observable} from 'rxjs';
 
 @Component({

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Task} from './task';
+import {Task} from '../jso/task';
 import {HttpClient, HttpParams, HttpResponse} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {LogicService} from './logic.service';
@@ -8,6 +8,8 @@ import {LogicService} from './logic.service';
   providedIn: 'root'
 })
 export class HttpService {
+
+  url: string = 'http://localhost:8081/api/v1/mongo';
 
   constructor(private httpClient: HttpClient, private logicService: LogicService) {
     this.updateContent();
@@ -18,11 +20,11 @@ export class HttpService {
   //    return this.httpClient.get<Response>('http://localhost:8081/mongo/findAll', {observe: 'response'});
   //  }
   getTaskFromStorage(): Observable<Array<Task>>{
-    return this.httpClient.get<Array<Task>>('http://localhost:8081/mongo/findAll');
+    return this.httpClient.get<Array<Task>>(this.url + '/findAll');
   }
 
   addToDo(task: Task) {
-    this.httpClient.post('http://localhost:8081/mongo/add',task).subscribe(
+    this.httpClient.post(this.url + '/add',task).subscribe(
       () => { this.updateContent(); },
       error => console.log(error)
     );
@@ -44,7 +46,7 @@ export class HttpService {
 
   updateOne(task: Task){
     console.log(task)
-    this.httpClient.put('http://localhost:8081/mongo/update',task).subscribe(
+    this.httpClient.put(this.url + '/update',task).subscribe(
       () => { this.updateContent(); },
       error => console.log(error)
     );
@@ -52,7 +54,7 @@ export class HttpService {
 
   removeToDo(task: Task){
     const param = new HttpParams().set('id',task.id);
-    this.httpClient.delete('http://localhost:8081/mongo/delete',{params: param}).subscribe(
+    this.httpClient.delete(this.url + '/delete',{params: param}).subscribe(
       () => { this.updateContent();},
       error => console.log(error)
     );

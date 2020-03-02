@@ -7,7 +7,10 @@
 <ng-template #show >
   <ul appOwnDirective>
     <li appDate [date]="task.done" *ngFor="let task of toShow">
-      {{task.name | modyfy }}
+      {{task.name | modyfy }}<br>
+      <button type="button" class="btn btn-info" (click)="remove(task)" > Delete</button>
+      <button type="button" class="btn btn-info" [routerLink]= "[task.id]" > Show more</button>
     </li>
   </ul>
+  <router-outlet></router-outlet>
 </ng-template>

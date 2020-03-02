@@ -1,12 +1,10 @@
 <h2>ToDos</h2>
 <ng-container>
-
   <ul appOwnDirective >
     <li appDate [date]="task.created" *ngFor="let task of toShow | async | sort">
       {{task.name | modyfy }}<br>
       <button type="button" class="btn btn-primary" (click)="markDone(task)" > markDone</button>
       <button type="button" class="btn btn-info" (click)="remove(task)" > delete</button>
     </li>
-
   </ul>
 </ng-container>
