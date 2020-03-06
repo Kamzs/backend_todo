@@ -1,16 +1,14 @@
 <h2>Done!</h2>
 
-<ng-container *ngIf="toShow.length===0; then noElems; else show">
-
-</ng-container>
+<ng-container *ngIf="toShow.length===0; then noElems; else show"></ng-container>
 <ng-template #noElems >nothing to show</ng-template>
 <ng-template #show >
-  <ul appOwnDirective>
+  <ol appOwnDirective>
     <li appDate [date]="task.done" *ngFor="let task of toShow">
       {{task.name | modyfy }}<br>
-      <button type="button" class="btn btn-info" (click)="remove(task)" > Delete</button>
+      <button type="button" class="btn btn-info" (click)="remove(task)" routerLink="/done" > Delete</button>
       <button type="button" class="btn btn-info" [routerLink]= "[task.id]" > Show more</button>
     </li>
-  </ul>
+  </ol>
   <router-outlet></router-outlet>
 </ng-template>
