@@ -10,17 +10,16 @@ import {HttpService} from '../services/http.service';
 })
 export class DetailsComponent {
 
-  details: Task;
+  details: Task = {created: undefined, done: undefined, id: '', name: ''};
 
   constructor(private activatedRoute: ActivatedRoute, private httpService: HttpService) {
     let taskID;
-    this.activatedRoute.paramMap.subscribe( (params: ParamMap) =>
-    {
+    this.activatedRoute.paramMap.subscribe( (params: ParamMap) => {
       taskID = params.get('id');
       this.httpService.getTaskFromStorage().subscribe((tasks: Array<Task>) => {
         this.details = tasks.find(task => task.id === taskID);
-      })
-    })
+      });
+    });
   }
 
 

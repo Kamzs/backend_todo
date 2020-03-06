@@ -1,5 +1,10 @@
 
 <h2>Add Task</h2>
-<input (focus)="clear()" [(ngModel)]="inputField">
-<button type="button" class="btn btn-success"  (click)="add()" >Add</button><br>
+<input class="input-group input-group-sm mb-3"
+  (focus)="clear()" [(ngModel)]="inputField" >
+<button
+  routerLink="/todo"
+  type="button" class="btn btn-success"
+  (click)="add()" >Add
+</button><br>
 

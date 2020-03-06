@@ -16,10 +16,10 @@ export class LogicService {
   constructor() {
   }
 
-  getObservableTasksToDo() : Observable<Array<Task>> {
+  getObservableTasksToDo(): Observable<Array<Task>> {
     return this.subjectTasksToDo.asObservable();
   }
-  getObservableTasksDone() : Observable<Array<Task>> {
+  getObservableTasksDone(): Observable<Array<Task>> {
     return this.subjectTasksDone.asObservable();
   }
 

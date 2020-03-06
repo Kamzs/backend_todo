@@ -1,8 +1,6 @@
 import { Component} from '@angular/core';
 import {LogicService} from '../services/logic.service';
 import {HttpService} from '../services/http.service';
-import {Task} from '../jso/task';
-import {TaskLogger} from 'protractor/built/taskLogger';
 
 @Component({
   selector: 'app-input',
