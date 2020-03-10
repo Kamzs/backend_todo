@@ -23,15 +23,11 @@ export class HttpService {
     return this.httpClient.get<Array<Task>>(this.url + '/findAll');
   }
 
-  //todo - dodac w backednzie enpoint przyjmujacy cala liste nowych taskow
-  //todo - we frontendzie zmieniac logike zeby wysylala jeden POST z arrayem
-
   addToDo(task: Task[]) {
     this.httpClient.post(this.url + '/add', task).subscribe(
-      () => { this.updateContent(); },
+      (x) => { console.log(x);this.updateContent();},
       error => console.log(error)
     );
-
   }
 
   updateContent() {
@@ -48,7 +44,6 @@ export class HttpService {
   }
 
   updateOne(task: Task) {
-    console.log(task);
     this.httpClient.put(this.url + '/update', task).subscribe(
       (answer) => {
         console.log(answer);
