@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {LogicService} from '../services/logic.service';
 import {HttpService} from '../services/http.service';
 import {FormArray, FormControl, FormGroup, Validators} from '@angular/forms';
+import { Task } from '../jso/task';
 
 @Component({
   selector: 'app-input',
@@ -11,6 +12,7 @@ import {FormArray, FormControl, FormGroup, Validators} from '@angular/forms';
 export class InputComponent implements OnInit {
 
   addForm: FormGroup;
+  arrayOfTasks: Array<Task> = [];
   constructor(private logicService: LogicService, private httpService: HttpService) {}
 
   ngOnInit(): void {
@@ -27,13 +29,13 @@ export class InputComponent implements OnInit {
   }
 
   add() {
-    let arrayOfInputFields = <FormArray>this.addForm.get('inputFields');
-    let sizeOfAr = arrayOfInputFields.length;
-    for (let i = 0 ;i < sizeOfAr; i++){
-      //console.log(this.addForm.get('inputFields').value[i]);
-      let task = ({name: this.addForm.get('inputFields').value[i], created: new Date()});
-      this.httpService.addToDo(task);
-    }
-  }
 
+    let arrayOfInputFields = <[string]>this.addForm.get('inputFields').value;
+    arrayOfInputFields.forEach(newTaskName => {
+      this.arrayOfTasks.push({name: newTaskName, created: new Date()});
+      }
+    );
+    this.httpService.addToDo(this.arrayOfTasks);
+    this.arrayOfTasks=[];
+  }
 }
