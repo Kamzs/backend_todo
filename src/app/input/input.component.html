@@ -1,10 +1,25 @@
 
 <h2>Add Task</h2>
-<input class="input-group input-group-sm mb-3"
-  (focus)="clear()" [(ngModel)]="inputField" >
-<button
-  routerLink="/todo"
-  type="button" class="btn btn-success"
-  (click)="add()" >Add
-</button><br>
+<form [formGroup]="addForm" (ngSubmit)="add()">
+  <div formArrayName="inputFields">
+    <div *ngFor="let input of addForm.get('inputFields')['controls']; let i = index">
+      <input class="input-group input-group-sm mb-3" type="text" [formControlName]="i">
+    </div>
+  </div>
+  <button
+    type="button" class="btn btn-success"
+    (click)="createNew()">
+    Dodaj pole
+  </button>
+  <br>
 
+  <button
+    routerLink="/todo"
+    type="button" class="btn btn-success"
+    (click)="add()"
+    [disabled]="addForm.invalid">
+    Zapisz wszystkie
+  </button>
+  <br>
+
+</form>
