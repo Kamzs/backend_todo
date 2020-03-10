@@ -1,0 +1,43 @@
+[debug] [2020-03-10T16:22:12.327Z] ----------------------------------------------------------------------
+[debug] [2020-03-10T16:22:12.329Z] Command:       /usr/bin/node /usr/bin/firebase init
+[debug] [2020-03-10T16:22:12.329Z] CLI Version:   7.14.0
+[debug] [2020-03-10T16:22:12.330Z] Platform:      linux
+[debug] [2020-03-10T16:22:12.330Z] Node Version:  v10.19.0
+[debug] [2020-03-10T16:22:12.330Z] Time:          Tue Mar 10 2020 17:22:12 GMT+0100 (Central European Standard Time)
+[debug] [2020-03-10T16:22:12.330Z] ----------------------------------------------------------------------
+[debug] [2020-03-10T16:22:12.330Z] 
+[debug] [2020-03-10T16:22:12.344Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-03-10T16:22:12.345Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /home/kambroziak/angular_learning/tesingoutandin/test
+
+Before we get started, keep in mind:
+
+  * You are initializing in an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2020-03-10T16:22:30.882Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects?pageSize=100  
+ 
+[debug] [2020-03-10T16:22:31.070Z] <<< HTTP RESPONSE 200
+[info] i  Using project autoryzacjatodo (AutoryzacjaTODO)
+[info] 
+=== Hosting Setup
+[info] 
+[info] Your public directory is the folder (relative to your project directory) that
+[info] will contain Hosting assets to be uploaded with firebase deploy. If you
+[info] have a build process for your assets, use your build's output directory.
+[info] 

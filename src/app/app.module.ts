@@ -14,6 +14,9 @@ import {SpyInterceptor} from './interceptors/spy.interceptor';
 import {AuthInterceptor} from './interceptors/auth.interceptor';
 import {AppRoutingModule} from './app-routing.module';
 import { DetailsComponent } from './details/details.component';
+import {AngularFireModule} from "@angular/fire";
+import { environment } from 'src/environments/environment';
+import {AngularFireAuthModule} from "@angular/fire/auth";
 
 @NgModule({
   declarations: [
@@ -32,7 +35,9 @@ import { DetailsComponent } from './details/details.component';
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule
   ],
   providers: [
     {
