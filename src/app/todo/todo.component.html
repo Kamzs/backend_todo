@@ -2,8 +2,10 @@
 <ng-container>
   <ol appOwnDirective >
     <li appDate [date]="task.created" *ngFor="let task of toShow | async | sort">
-      {{task.name | modyfy }}<br>
-      <button
+
+      <p *ngIf="changing === false"> {{task.name | modyfy }}<br>
+
+        <button
         routerLink="/done"
         type="button" class="btn btn-primary"
         (click)="markDone(task)" > markDone
@@ -33,6 +35,8 @@
           cancel
         </button>
       </div>
+
+
 
     </li>
   </ol>

@@ -42,6 +42,7 @@ export class TodoComponent {
   changeEditingStatus(task?:Task){
     if(this.nameOfChangedTask === ''){
       this.nameOfChangedTask = task.name;
+      this.changedContent = task.name;
     }else{
       this.nameOfChangedTask = '';
     }
