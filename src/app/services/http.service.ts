@@ -23,8 +23,8 @@ export class HttpService {
     return this.httpClient.get<Array<Task>>(this.url + '/findAll');
   }
 
-  addToDo(task: Task[]) {
-    this.httpClient.post(this.url + '/add', task).subscribe(
+  addToDo(tasks: Task[]) {
+    this.httpClient.post(this.url + '/add', tasks).subscribe(
       (x) => { console.log(x);this.updateContent();},
       error => console.log(error)
     );

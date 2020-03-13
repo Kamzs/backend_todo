@@ -41,3 +41,18 @@ Before we get started, keep in mind:
 [info] will contain Hosting assets to be uploaded with firebase deploy. If you
 [info] have a build process for your assets, use your build's output directory.
 [info] 
+[debug] [2020-03-11T10:41:44.760Z] Error: write EIO
+    at WriteWrap.afterWrite [as oncomplete] (net.js:789:14)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2020-03-11T10:41:44.767Z] TypeError: Cannot read property 'setRawMode' of null
+    at ReadStream.setRawMode (tty.js:69:28)
+    at Interface._setRawMode (readline.js:269:16)
+    at Interface.close (readline.js:394:10)
+    at ReadStream.ontermend (readline.js:180:10)
+    at ReadStream.emit (events.js:203:15)
+    at ReadStream.EventEmitter.emit (domain.js:448:20)
+    at endReadableNT (_stream_readable.js:1145:12)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+[error] 
+[error] Error: An unexpected error has occurred.

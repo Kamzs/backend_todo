@@ -17,6 +17,8 @@ import { DetailsComponent } from './details/details.component';
 import {AngularFireModule} from "@angular/fire";
 import { environment } from 'src/environments/environment';
 import {AngularFireAuthModule} from "@angular/fire/auth";
+import { LoginComponent } from './auth/login/login.component';
+
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import {AngularFireAuthModule} from "@angular/fire/auth";
     DateDirective,
     ModyfyPipe,
     SortPipe,
-    DetailsComponent
+    DetailsComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

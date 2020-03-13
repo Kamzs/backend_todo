@@ -13,6 +13,11 @@ export class TodoComponent {
 
   toShow: Observable<Array<Task>>;
 
+  nameOfChangedTask: string = ''
+  changedContent: string = '';
+  changedTask: Array<Task> = [];
+  changing: boolean = false;
+
   constructor(private logicService: LogicService, private httpService: HttpService) {
     this.toShow = this.logicService.getObservableTasksToDo();
   }
@@ -23,6 +28,30 @@ export class TodoComponent {
   }
   remove(task: Task) {
     this.httpService.removeToDo(task);
+  }
+  edit(task: Task){
+    //this.httpService.removeToDo(task);
+    task.name = this.changedContent;
+    this.httpService.updateOne(task);
+    this.changedTask = null;
+    this.changedContent = '';
+
+    this.changeEditingStatus();
+  }
+
+  changeEditingStatus(task?:Task){
+    if(this.nameOfChangedTask === ''){
+      this.nameOfChangedTask = task.name;
+    }else{
+      this.nameOfChangedTask = '';
+    }
+
+    if(this.changing === true){
+      this.changing = false;
+    }
+    else {
+      this.changing = true;
+    }
   }
 
 }

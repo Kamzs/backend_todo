@@ -8,7 +8,32 @@
         type="button" class="btn btn-primary"
         (click)="markDone(task)" > markDone
       </button>
-      <button type="button" class="btn btn-info" (click)="remove(task)" > delete</button>
+      <button
+        type="button" class="btn btn-info"
+              (click)="remove(task)" >
+        delete
+      </button>
+      <button
+        type="button" class="btn btn-info"
+        (click)="changeEditingStatus(task)" >
+        edit
+      </button>
+
+      <div *ngIf="changing === true && nameOfChangedTask === task.name">
+        Edit content:
+        <input [(ngModel)]="changedContent">
+        <button
+          type="button" class="btn btn-info"
+          (click)="edit(task)" >
+          edit
+        </button>
+        <button
+          type="button" class="btn btn-info"
+          (click)="changeEditingStatus(task)">
+          cancel
+        </button>
+      </div>
+
     </li>
   </ol>
 </ng-container>
