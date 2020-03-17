@@ -12,10 +12,9 @@ export class AuthService{
   user: User;
 
   constructor(private angularFireAuth : AngularFireAuth, private router: Router, private httpService: HttpService) {
-    this.angularFireAuth.user.subscribe((user: User) => {
+    this.angularFireAuth.authState.subscribe((user: User) => {
       this.user = user;
       this.httpService.setUser(user);
-      this.httpService.updateContent();
     });
   }
 
@@ -47,5 +46,3 @@ export class AuthService{
 
 
 }
-
-//todo - nie uruchamia sie udpate po zalogowaniu

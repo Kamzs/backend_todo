@@ -25,6 +25,7 @@ export class HttpService {
 
   setUser(user: User){
     this.user = user;
+    this.updateContent();
   }
 
   getTaskFromStorage(): Observable<Array<Task>> {
