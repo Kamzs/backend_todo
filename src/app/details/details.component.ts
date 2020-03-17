@@ -10,7 +10,7 @@ import {HttpService} from '../services/http.service';
 })
 export class DetailsComponent {
 
-  details: Task = {created: undefined, done: undefined, id: '', name: ''};
+  details: Task = {fire: '', created: undefined, done: undefined, id: '', name: ''};
 
   constructor(private activatedRoute: ActivatedRoute, private httpService: HttpService) {
     let taskID;

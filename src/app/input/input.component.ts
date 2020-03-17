@@ -3,6 +3,7 @@ import {LogicService} from '../services/logic.service';
 import {HttpService} from '../services/http.service';
 import {FormArray, FormControl, FormGroup, Validators} from '@angular/forms';
 import { Task } from '../jso/task';
+import {AuthService} from "../auth/auth.service";
 
 @Component({
   selector: 'app-input',
@@ -12,8 +13,7 @@ import { Task } from '../jso/task';
 export class InputComponent implements OnInit {
 
   addForm: FormGroup;
-  arrayOfTasks: Array<Task> = [];
-  constructor(private logicService: LogicService, private httpService: HttpService) {}
+  constructor(private logicService: LogicService, private httpService: HttpService, private authService: AuthService) {}
 
   ngOnInit(): void {
         this.addForm = new FormGroup(
@@ -29,13 +29,18 @@ export class InputComponent implements OnInit {
   }
 
   add() {
-
     let arrayOfInputFields = <[string]>this.addForm.get('inputFields').value;
+    let arrayOfTasks = [];
     arrayOfInputFields.forEach(newTaskName => {
-      this.arrayOfTasks.push({name: newTaskName, created: new Date()});
+        let task =
+        {
+          fire: this.authService.user.uid,
+          name: newTaskName,
+          created: new Date()
+        };
+      arrayOfTasks.push(task);
       }
     );
-    this.httpService.addToDo(this.arrayOfTasks);
-    this.arrayOfTasks=[];
+    this.httpService.addToDo(arrayOfTasks);
   }
 }
