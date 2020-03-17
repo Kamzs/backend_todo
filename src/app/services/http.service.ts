@@ -18,11 +18,6 @@ export class HttpService {
   constructor(private httpClient: HttpClient, private logicService: LogicService) {
   }
 
-  // mozna rowniez nie przyjmowac samego body w postaci json - ponizej zmiana konifguracji odbieranego response
-  //  getTaskFromStorageFull(): Observable<HttpResponse<Response>>{
-  //    return this.httpClient.get<Response>('http://localhost:8081/mongo/findAll', {observe: 'response'});
-  //  }
-
   setUser(user: User){
     this.user = user;
     this.updateContent();
