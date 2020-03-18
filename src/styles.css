@@ -1,4 +1,4 @@
-.container{
+.box{
   background-color: gainsboro;
   padding: 20px;
 }
@@ -8,10 +8,6 @@ h2{
   padding-top: 20px;
 }
 
-li{
-  margin: 15px;
-  text-align: center;
-}
 
 ul{
   list-style: none;
